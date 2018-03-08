@@ -13,4 +13,11 @@ class Numbers { // Static methods used to manipulate numbers in various ways
 		return num;
 	}
 
+	static map(value, start1, stop1, start2, stop2) { // Changes "value" within the range [start1, stop1] to its equivalent value within the range [start2, stop2]
+		let diff = stop1-start1; // difference between start and stop
+		let v = (value-start1)/diff; // v is the how far through that difference "value" is
+		let diff2 = stop2-start2;
+		return start2 + (v * diff2);
+	}
+
 }

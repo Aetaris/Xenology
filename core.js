@@ -44,6 +44,21 @@ window.onload = () => {
 		let obj = new Entity(new Vector(Math.random() * World.width, Math.random() * World.height));
 		World.addEntity(obj);
 	}
+
+	for(let i = 0; i < 10; i++) {
+		let obj = new EnemyShip(new Vector(Math.random() * World.width, Math.random() * World.height));
+		World.addEntity(obj);
+	}
+
+	for(let i = 0; i < 4; i++) {
+		let obj = new EnemyCruiser(new Vector(Math.random() * World.width, Math.random() * World.height));
+		World.addEntity(obj);
+	}
+
+	for(let i = 0; i < 6; i++) {
+		let obj = new EnemyDevourer(new Vector(Math.random() * World.width, Math.random() * World.height));
+		World.addEntity(obj);
+	}
 }
 
 function runFrame() {

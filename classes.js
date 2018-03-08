@@ -26,13 +26,13 @@ class Entity {
 
 			showHealth: true, // TRUE: health bars are visible when the entity is damaged. FALSE: health bars are never visible. If this is false, the 'alwaysShowHealth' tag is redundant.
 			
-			alwaysShowHealth: true, // TRUE: even when undamaged, health bars are visible. FALSE: health bars are only visible when the entity is damaged. This is largely just style.
+			alwaysShowHealth: false, // TRUE: even when undamaged, health bars are visible. FALSE: health bars are only visible when the entity is damaged. This is largely just style.
 			
 			showHealthDividers: true, // TRUE: display dividers in health bars for each point of health. FALSE: health bars are a single block, with no dividers.
 			
 			showHealthDividersMissing: false, // TRUE: display dividers in parts of the health bar where health has been lost. Less visually nice but more informative. FALSE: don't do that.
 			
-			showHealthNumbers: true, // TRUE: display the health number to the left of the health bar. FALSE: don't.
+			showHealthNumbers: false, // TRUE: display the health number to the left of the health bar. FALSE: don't.
 			
 			invulnerable: false, // TRUE: cannot take damage. FALSE: can take damage as normal.
 
@@ -155,16 +155,6 @@ class Entity {
 			this.stats.maxHp = hp;
 		}
     }
-
-	addTimedLife(duration, action) {
-		this.timedLife = duration;
-		this.frameEvents.push(() => {
-			this.timedLife -= 1/World.FPS;
-			if(this.timedLife <= 0) {
-				(action || this.destroy)();
-			}
-		})
-	}
 
 	removeStatBlock() { // Removes an existing stat block.
 		this.stats = undefined;
